@@ -1,7 +1,6 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
-import java.util.Map;
 
 
 import com.atguigu.core.bean.PageVo;
@@ -32,6 +31,16 @@ import com.atguigu.gmall.pms.service.AttrService;
 public class AttrController {
     @Autowired
     private AttrService attrService;
+
+    @ApiOperation("根据cid和type查询三级分类子菜单的销售属性或基本属性")
+    @GetMapping
+    public Resp<PageVo> getAttrByTypeAndCid(@RequestParam("type")Integer type,
+                    @RequestParam("cid")Long cid, QueryCondition condition){
+
+        PageVo pageVo = attrService.getAttrByTypeAndCid(type,cid,condition);
+
+        return Resp.ok(pageVo);
+    }
 
     /**
      * 列表

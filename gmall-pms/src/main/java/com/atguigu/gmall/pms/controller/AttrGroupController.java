@@ -7,6 +7,8 @@ import java.util.Map;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.entity.AttrAttrgroupRelationEntity;
+import com.atguigu.gmall.pms.vo.AttrGroupRelationVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,23 @@ public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
 
+    @ApiOperation("查询组及组的规格参数")
+    @GetMapping("/withattr/{gid}")
+    public Resp<AttrGroupRelationVO> getAttrWithGroupByGid(@PathVariable("gid")Long gid){
+
+        AttrGroupRelationVO attrGroupRelationVO = attrGroupService.getAttrWithGroupByGid(gid);
+        return Resp.ok(attrGroupRelationVO);
+    }
+
+    @ApiOperation("分页查询spu的所属组信息")
+    @GetMapping("/{cid}")
+    public Resp<PageVo> getAttrGroupByCidWithPage(@PathVariable("cid")Long cid,
+                                                  QueryCondition condition){
+
+        PageVo pageVo = attrGroupService.getAttrGroupByCidWithPage(cid, condition);
+
+        return Resp.ok(pageVo);
+    }
     /**
      * 列表
      */
