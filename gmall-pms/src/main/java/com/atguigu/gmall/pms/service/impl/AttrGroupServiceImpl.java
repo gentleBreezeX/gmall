@@ -5,6 +5,7 @@ import com.atguigu.gmall.pms.dao.AttrDao;
 import com.atguigu.gmall.pms.entity.AttrAttrgroupRelationEntity;
 import com.atguigu.gmall.pms.entity.AttrEntity;
 import com.atguigu.gmall.pms.vo.AttrGroupRelationVO;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -81,6 +82,20 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         attrGroupRelationVO.setAttrEntities(attrEntities);
 
         return attrGroupRelationVO;
+    }
+
+    @Override
+    public List<AttrGroupRelationVO> listAttrAndGroup(Long cid) {
+
+        AttrGroupRelationVO relationVO = new AttrGroupRelationVO();
+
+        List<AttrGroupEntity> attrGroupEntities = attrGroupDao.selectList(new QueryWrapper<AttrGroupEntity>().eq("catelog_id", cid));
+
+        List<AttrGroupRelationVO> relationVOS = attrGroupEntities.stream().map(attrGroupEntity ->
+                this.getAttrWithGroupByGid(attrGroupEntity.getAttrGroupId()))
+                .collect(Collectors.toList());
+
+        return relationVOS;
     }
 
 }

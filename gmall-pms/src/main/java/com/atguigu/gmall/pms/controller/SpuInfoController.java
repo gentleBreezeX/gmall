@@ -7,6 +7,7 @@ import java.util.Map;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.vo.SpuInfoVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,15 @@ import com.atguigu.gmall.pms.service.SpuInfoService;
 public class SpuInfoController {
     @Autowired
     private SpuInfoService spuInfoService;
+
+    @ApiOperation("spu商品信息查询")
+    @GetMapping
+    public Resp<PageVo> listSpuInfo(QueryCondition queryCondition,
+            @RequestParam(value = "catId", defaultValue = "0") Long catId){
+        PageVo pageVo = spuInfoService.listSpuInfo(catId, queryCondition);
+
+        return Resp.ok(pageVo);
+    }
 
     /**
      * 列表
@@ -60,12 +70,18 @@ public class SpuInfoController {
 
     /**
      * 保存
+     *
+     * 新增spu数据，总共9张表
+     * pms中spu三张
+     * pms中sku三张
+     *
+     * sms中sku三张
      */
     @ApiOperation("保存")
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('pms:spuinfo:save')")
-    public Resp<Object> save(@RequestBody SpuInfoEntity spuInfo){
-		spuInfoService.save(spuInfo);
+    public Resp<Object> save(@RequestBody SpuInfoVO spuInfo){
+		spuInfoService.saveBigSpu(spuInfo);
 
         return Resp.ok(null);
     }
