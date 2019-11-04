@@ -22,6 +22,7 @@ import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.gmall.sms.dao.SkuBoundsDao;
 import com.atguigu.gmall.sms.entity.SkuBoundsEntity;
 import com.atguigu.gmall.sms.service.SkuBoundsService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 
@@ -43,6 +44,7 @@ public class SkuBoundsServiceImpl extends ServiceImpl<SkuBoundsDao, SkuBoundsEnt
         return new PageVo(page);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void saveSkuSaleInfo(SkuSaleDTO skuSaleDTO) {
 

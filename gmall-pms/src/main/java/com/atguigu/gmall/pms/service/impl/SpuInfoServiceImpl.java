@@ -10,6 +10,7 @@ import com.atguigu.gmall.pms.vo.ProductAttrValueVO;
 import com.atguigu.gmall.pms.vo.SkuInfoVO;
 import com.atguigu.gmall.pms.vo.SpuInfoVO;
 import com.atguigu.gmall.sms.dto.SkuSaleDTO;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,7 +90,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
      * 营销相关3张
      * @param spuInfo
      */
-    @Transactional(rollbackFor = Exception.class)
+    @GlobalTransactional(rollbackFor = Exception.class)
     @Override
     public void saveBigSpu(SpuInfoVO spuInfo) {
 
@@ -181,11 +182,15 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
             this.skuSaleAttrValueService.saveBatch(saleAttrs);
 
+
+
             // 3. 保存营销相关信息，需要远程调用gmall-sms
             SkuSaleDTO skuSaleDTO = new SkuSaleDTO();
             BeanUtils.copyProperties(skuInfoVO, skuSaleDTO);
             skuSaleDTO.setSkuId(skuId);
             this.skuSaleFeign.saveSkuSaleInfo(skuSaleDTO);
+
         });
+       //System.out.println(1 / 0); 测试分布式事务
     }
 }
