@@ -1,12 +1,14 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.vo.SpuAttributeValueVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,16 @@ import com.atguigu.gmall.pms.service.ProductAttrValueService;
 public class ProductAttrValueController {
     @Autowired
     private ProductAttrValueService productAttrValueService;
+
+
+    @ApiOperation("根据spuId关联查询search_type=1需要检索索引的属性")
+    @GetMapping("/{spuId}")
+    public Resp<List<SpuAttributeValueVO>> listSearchAttrValue(@PathVariable("spuId") Long spuId){
+
+        List<SpuAttributeValueVO> spuAttributeValueVOS = this.productAttrValueService.listSearchAttrValue(spuId);
+
+        return Resp.ok(spuAttributeValueVOS);
+    }
 
     /**
      * 列表

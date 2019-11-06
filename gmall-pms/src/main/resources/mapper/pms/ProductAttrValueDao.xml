@@ -15,4 +15,13 @@
     </resultMap>
 
 
+    <select id="listSearchAttrValue" resultMap="productAttrValueMap">
+        select a.id,a.attr_id,a.attr_name,a.attr_value,a.spu_id
+        from pms_product_attr_value a
+        inner join pms_attr b
+        on a.attr_id = b.attr_id
+        where a.spu_id = 9
+        and b.search_type=1;
+    </select>
+
 </mapper>
