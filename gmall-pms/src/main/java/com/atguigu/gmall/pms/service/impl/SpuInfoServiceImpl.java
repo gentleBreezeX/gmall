@@ -12,14 +12,13 @@ import com.atguigu.gmall.pms.vo.SpuInfoVO;
 import com.atguigu.gmall.sms.dto.SkuSaleDTO;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -53,6 +52,8 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     private SkuSaleAttrValueService skuSaleAttrValueService;
     @Autowired
     private SkuSaleFeign skuSaleFeign;
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
 
     @Override
@@ -97,37 +98,30 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         //1.新增spu相关3张
         //1.1 新增spuInfo
         //默认是已上架
-        spuInfo.setPublishStatus(1);
-        spuInfo.setCreateTime(new Date());
-        spuInfo.setUodateTime(spuInfo.getCreateTime());
-        this.save(spuInfo);
-        //获取新增之后的spuId
-        Long spuId = spuInfo.getId();
+        Long spuId = saveSpuInfo(spuInfo);
 
         //1.2 新增spuInfoDesc
-        SpuInfoDescEntity spuInfoDescEntity = new SpuInfoDescEntity();
-        // 注意：spu_info_desc表的主键是spu_id,需要在实体类中配置该主键不是自增主键
-        spuInfoDescEntity.setSpuId(spuId);
-        //采用描述表存储图片信息，图片表不用了
-        spuInfoDescEntity.setDecript(StringUtils.join(spuInfo.getSpuImages(), ","));
-        spuInfoDescDao.insert(spuInfoDescEntity);
+        saveSpuInfoDesc(spuInfo, spuId);
 
         //1.3 新增productAttrValue
-        List<ProductAttrValueVO> baseAttrs = spuInfo.getBaseAttrs();
-        if (!CollectionUtils.isEmpty(baseAttrs)){
-            List<ProductAttrValueEntity> productAttrValueEntities =
-                    baseAttrs.stream().map(productAttrValueVO -> {
-                        productAttrValueVO.setSpuId(spuId);
-                        productAttrValueVO.setAttrSort(0);
-                        productAttrValueVO.setQuickShow(1);
-                        return productAttrValueVO;
-                    }).collect(Collectors.toList());
-
-            productAttrValueService.saveBatch(productAttrValueEntities);
-        }
-
+        saveProductAttrValue(spuInfo, spuId);
 
         //2.新增sku相关3张 spuId
+        saveBigSku(spuInfo, spuId);
+
+        //保存完成，使用rabbitMQ发送成功的消息
+        sendMessage(spuId, "insert");
+        //System.out.println(1 / 0); 测试分布式事务
+    }
+
+    private void sendMessage(Long spuId, String type){
+        Map<String, Object> map = new HashMap<>(3);
+        map.put("spuId", spuId);
+        map.put("type", type);
+        this.amqpTemplate.convertAndSend("item." + type, map);
+    }
+
+    private void saveBigSku(SpuInfoVO spuInfo, Long spuId) {
         List<SkuInfoVO> skus = spuInfo.getSkus();
         if (CollectionUtils.isEmpty(skus)) {
             return;
@@ -191,6 +185,38 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             this.skuSaleFeign.saveSkuSaleInfo(skuSaleDTO);
 
         });
-       //System.out.println(1 / 0); 测试分布式事务
+    }
+
+    private void saveProductAttrValue(SpuInfoVO spuInfo, Long spuId) {
+        List<ProductAttrValueVO> baseAttrs = spuInfo.getBaseAttrs();
+        if (!CollectionUtils.isEmpty(baseAttrs)){
+            List<ProductAttrValueEntity> productAttrValueEntities =
+                    baseAttrs.stream().map(productAttrValueVO -> {
+                        productAttrValueVO.setSpuId(spuId);
+                        productAttrValueVO.setAttrSort(0);
+                        productAttrValueVO.setQuickShow(1);
+                        return productAttrValueVO;
+                    }).collect(Collectors.toList());
+
+            productAttrValueService.saveBatch(productAttrValueEntities);
+        }
+    }
+
+    private void saveSpuInfoDesc(SpuInfoVO spuInfo, Long spuId) {
+        SpuInfoDescEntity spuInfoDescEntity = new SpuInfoDescEntity();
+        // 注意：spu_info_desc表的主键是spu_id,需要在实体类中配置该主键不是自增主键
+        spuInfoDescEntity.setSpuId(spuId);
+        //采用描述表存储图片信息，图片表不用了
+        spuInfoDescEntity.setDecript(StringUtils.join(spuInfo.getSpuImages(), ","));
+        spuInfoDescDao.insert(spuInfoDescEntity);
+    }
+
+    private Long saveSpuInfo(SpuInfoVO spuInfo) {
+        spuInfo.setPublishStatus(1);
+        spuInfo.setCreateTime(new Date());
+        spuInfo.setUodateTime(spuInfo.getCreateTime());
+        this.save(spuInfo);
+        //获取新增之后的spuId
+        return spuInfo.getId();
     }
 }
