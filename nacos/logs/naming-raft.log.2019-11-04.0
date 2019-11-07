@@ -1,0 +1,40 @@
+2019-11-04 08:28:42,152 INFO initializing Raft sub-system
+
+2019-11-04 08:28:42,153 INFO finish loading all datums, size: 0 cost 1 ms.
+
+2019-11-04 08:28:42,243 INFO raft notifier started
+
+2019-11-04 08:28:42,278 INFO cache loaded, datum count: 0, current term: 0
+
+2019-11-04 08:28:42,278 INFO finish to load data from disk, cost: 126 ms.
+
+2019-11-04 08:28:41,616 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"192.168.17.47","key":"192.168.17.47:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
+
+2019-11-04 08:28:42,286 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+
+2019-11-04 08:28:42,389 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"192.168.17.47","key":"192.168.17.47:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+
+2019-11-04 08:28:42,529 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+
+2019-11-04 08:28:56,788 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2019-11-04 08:29:16,145 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"192.168.17.47","key":"192.168.17.47:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+
+2019-11-04 08:29:16,147 INFO server list is updated, dead: 1, servers: [{"adWeight":0,"alive":false,"ip":"192.168.17.47","key":"192.168.17.47:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+
+2019-11-04 08:29:16,147 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"192.168.17.47","key":"192.168.17.47:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+
+2019-11-04 08:29:17,337 INFO leader timeout, start voting,leader: {"heartbeatDueMs":5000,"ip":"192.168.17.47:8848","leaderDueMs":17176,"state":"FOLLOWER","term":0,"voteFor":""}, term: 0
+
+2019-11-04 08:29:18,630 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"192.168.17.47","key":"192.168.17.47:8848","lastRefTime":0,"lastRefTimeStr":"","servePort":8848,"site":"unknown","weight":1}]
+
+2019-11-04 08:30:01,192 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@pms-service
+
+2019-11-04 08:30:30,350 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@sms-service
+
+2019-11-04 08:30:47,621 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@gateway-api
+
+2019-11-04 09:01:09,456 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@serverAddr
+
+2019-11-04 21:07:41,859 INFO leader timeout, start voting,leader: {"heartbeatDueMs":5000,"ip":"192.168.17.47:8848","leaderDueMs":15053,"state":"CANDIDATE","term":1,"voteFor":"192.168.17.47:8848"}, term: 1
+

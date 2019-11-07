@@ -1,0 +1,238 @@
+2019-11-05 08:06:46,316 INFO DEFAULT_GROUP@@serverAddr {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [192.168.233.1:8091:unknown:default_1.0_true_false_default]
+
+2019-11-05 08:06:46,321 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@serverAddr, ips: 192.168.233.1:8091_true,
+
+2019-11-05 20:03:45,141 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8888:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 20:03:45,146 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 192.168.17.47:8888_true,
+
+2019-11-05 20:04:06,128 INFO DEFAULT_GROUP@@search-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8086:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 20:04:06,129 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@search-service, ips: 192.168.17.47:8086_true,
+
+2019-11-05 20:29:24,366 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8085:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 20:29:24,367 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 192.168.17.47:8085_true,
+
+2019-11-05 20:48:18,181 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8086@DEFAULT@DEFAULT_GROUP@@search-service, region: unknown, msg: client timeout after 15000, last beat: 1572958082759
+
+2019-11-05 20:48:18,181 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8888@DEFAULT@DEFAULT_GROUP@@gateway-api, region: unknown, msg: client timeout after 15000, last beat: 1572958082761
+
+2019-11-05 20:48:19,952 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8085@DEFAULT@DEFAULT_GROUP@@sms-service, region: unknown, msg: client timeout after 15000, last beat: 1572958081714
+
+2019-11-05 20:48:33,583 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8888:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 20:48:33,583 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 
+
+2019-11-05 20:48:33,583 INFO DEFAULT_GROUP@@search-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8086:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 20:48:33,583 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@search-service, ips: 
+
+2019-11-05 20:48:34,966 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8085:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 20:48:34,966 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 
+
+2019-11-05 21:12:50,223 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 21:12:50,223 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.17.47:8081_true,
+
+2019-11-05 21:18:30,610 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8081@DEFAULT@DEFAULT_GROUP@@pms-service, region: unknown, msg: client timeout after 15000, last beat: 1572959894004
+
+2019-11-05 21:18:45,677 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 21:18:45,677 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 
+
+2019-11-05 21:20:41,360 INFO DEFAULT_GROUP@@oms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8084:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 21:20:41,360 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@oms-service, ips: 192.168.17.47:8084_true,
+
+2019-11-05 21:21:14,240 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 21:21:14,240 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.17.47:8081_true,
+
+2019-11-05 21:21:20,217 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8085:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 21:21:20,217 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 192.168.17.47:8085_true,
+
+2019-11-05 21:21:37,483 INFO DEFAULT_GROUP@@ums-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8082:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 21:21:37,483 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@ums-service, ips: 192.168.17.47:8082_true,
+
+2019-11-05 21:22:20,075 INFO DEFAULT_GROUP@@wms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8083:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 21:22:20,075 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@wms-service, ips: 192.168.17.47:8083_true,
+
+2019-11-05 21:22:31,075 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8888:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 21:22:31,075 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 192.168.17.47:8888_true,
+
+2019-11-05 21:23:46,629 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8084@DEFAULT@DEFAULT_GROUP@@oms-service, region: unknown, msg: client timeout after 15000, last beat: 1572960211109
+
+2019-11-05 21:23:49,488 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8888@DEFAULT@DEFAULT_GROUP@@gateway-api, region: unknown, msg: client timeout after 15000, last beat: 1572960212530
+
+2019-11-05 21:23:50,083 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8083@DEFAULT@DEFAULT_GROUP@@wms-service, region: unknown, msg: client timeout after 15000, last beat: 1572960211953
+
+2019-11-05 21:23:51,130 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8081@DEFAULT@DEFAULT_GROUP@@pms-service, region: unknown, msg: client timeout after 15000, last beat: 1572960211637
+
+2019-11-05 21:23:51,135 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8085@DEFAULT@DEFAULT_GROUP@@sms-service, region: unknown, msg: client timeout after 15000, last beat: 1572960212713
+
+2019-11-05 21:23:52,624 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8082@DEFAULT@DEFAULT_GROUP@@ums-service, region: unknown, msg: client timeout after 15000, last beat: 1572960213945
+
+2019-11-05 21:24:01,640 INFO DEFAULT_GROUP@@oms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8084:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 21:24:01,640 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@oms-service, ips: 
+
+2019-11-05 21:24:04,494 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8888:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 21:24:04,494 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 
+
+2019-11-05 21:24:05,089 INFO DEFAULT_GROUP@@wms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8083:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 21:24:05,089 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@wms-service, ips: 
+
+2019-11-05 21:24:06,137 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 21:24:06,137 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 
+
+2019-11-05 21:24:06,141 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8085:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 21:24:06,141 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 
+
+2019-11-05 21:24:07,631 INFO DEFAULT_GROUP@@ums-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8082:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 21:24:07,631 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@ums-service, ips: 
+
+2019-11-05 22:22:52,166 INFO DEFAULT_GROUP@@serverAddr {SYNC} {IP-NEW} cluster: default, new ips size: 1, content: [192.168.233.1:8091:unknown:default_1.0_true_false_default]
+
+2019-11-05 22:22:52,169 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@serverAddr, ips: 192.168.233.1:8091_true,
+
+2019-11-05 22:49:25,103 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8888:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 22:49:25,103 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 192.168.1.8:8888_true,
+
+2019-11-05 22:49:35,360 INFO DEFAULT_GROUP@@search-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8086:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 22:49:35,360 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@search-service, ips: 192.168.1.8:8086_true,
+
+2019-11-05 22:52:26,055 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 22:52:26,055 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.1.8:8081_true,
+
+2019-11-05 22:54:42,199 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8085:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 22:54:42,199 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 192.168.1.8:8085_true,
+
+2019-11-05 22:55:46,730 INFO DEFAULT_GROUP@@wms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8083:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 22:55:46,730 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@wms-service, ips: 192.168.1.8:8083_true,
+
+2019-11-05 23:02:55,998 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8086@DEFAULT@DEFAULT_GROUP@@search-service, region: unknown, msg: client timeout after 15000, last beat: 1572966158520
+
+2019-11-05 23:03:11,248 INFO DEFAULT_GROUP@@search-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8086:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:03:11,249 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@search-service, ips: 
+
+2019-11-05 23:08:05,866 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8888@DEFAULT@DEFAULT_GROUP@@gateway-api, region: unknown, msg: client timeout after 15000, last beat: 1572966469223
+
+2019-11-05 23:08:07,092 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8081@DEFAULT@DEFAULT_GROUP@@pms-service, region: unknown, msg: client timeout after 15000, last beat: 1572966469288
+
+2019-11-05 23:08:07,092 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8083@DEFAULT@DEFAULT_GROUP@@wms-service, region: unknown, msg: client timeout after 15000, last beat: 1572966472004
+
+2019-11-05 23:08:07,633 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8085@DEFAULT@DEFAULT_GROUP@@sms-service, region: unknown, msg: client timeout after 15000, last beat: 1572966469866
+
+2019-11-05 23:08:20,878 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8888:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:08:20,878 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 
+
+2019-11-05 23:08:22,096 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8081:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:08:22,096 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 
+
+2019-11-05 23:08:22,099 INFO DEFAULT_GROUP@@wms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8083:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:08:22,099 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@wms-service, ips: 
+
+2019-11-05 23:08:22,654 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8085:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:08:22,654 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 
+
+2019-11-05 23:21:53,644 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:21:53,644 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.1.8:8081_true,
+
+2019-11-05 23:22:11,144 INFO DEFAULT_GROUP@@wms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8083:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:22:11,144 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@wms-service, ips: 192.168.1.8:8083_true,
+
+2019-11-05 23:22:14,271 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8085:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:22:14,272 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 192.168.1.8:8085_true,
+
+2019-11-05 23:22:27,516 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8888:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:22:27,516 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 192.168.1.8:8888_true,
+
+2019-11-05 23:22:43,897 INFO DEFAULT_GROUP@@search-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8086:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:22:43,897 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@search-service, ips: 192.168.1.8:8086_true,
+
+2019-11-05 23:27:02,323 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8888@DEFAULT@DEFAULT_GROUP@@gateway-api, region: unknown, msg: client timeout after 15000, last beat: 1572967606535
+
+2019-11-05 23:27:03,744 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8086@DEFAULT@DEFAULT_GROUP@@search-service, region: unknown, msg: client timeout after 15000, last beat: 1572967606188
+
+2019-11-05 23:27:03,744 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8083@DEFAULT@DEFAULT_GROUP@@wms-service, region: unknown, msg: client timeout after 15000, last beat: 1572967606416
+
+2019-11-05 23:27:08,745 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8085@DEFAULT@DEFAULT_GROUP@@sms-service, region: unknown, msg: client timeout after 15000, last beat: 1572967610143
+
+2019-11-05 23:27:08,745 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8081@DEFAULT@DEFAULT_GROUP@@pms-service, region: unknown, msg: client timeout after 15000, last beat: 1572967610190
+
+2019-11-05 23:27:17,332 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8888:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:27:17,332 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 
+
+2019-11-05 23:27:18,748 INFO DEFAULT_GROUP@@wms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8083:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:27:18,748 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@wms-service, ips: 
+
+2019-11-05 23:27:18,749 INFO DEFAULT_GROUP@@search-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8086:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:27:18,749 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@search-service, ips: 
+
+2019-11-05 23:27:23,751 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8081:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:27:23,751 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 
+
+2019-11-05 23:27:23,752 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.8:8085:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-05 23:27:23,752 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 
+
+2019-11-05 23:48:14,580 INFO DEFAULT_GROUP@@search-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8086:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:48:14,580 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@search-service, ips: 192.168.1.8:8086_true,
+
+2019-11-05 23:49:22,537 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:49:22,537 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.1.8:8081_true,
+
+2019-11-05 23:49:30,049 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8085:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:49:30,050 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 192.168.1.8:8085_true,
+
+2019-11-05 23:49:30,752 INFO DEFAULT_GROUP@@wms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8083:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:49:30,753 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@wms-service, ips: 192.168.1.8:8083_true,
+
+2019-11-05 23:49:42,828 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.8:8888:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-05 23:49:42,828 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 192.168.1.8:8888_true,
+
+2019-11-05 23:53:17,917 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8888@DEFAULT@DEFAULT_GROUP@@gateway-api, region: unknown, msg: client timeout after 15000, last beat: 1572969182677
+
+2019-11-05 23:53:19,384 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8086@DEFAULT@DEFAULT_GROUP@@search-service, region: unknown, msg: client timeout after 15000, last beat: 1572969184026
+
+2019-11-05 23:53:19,384 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8083@DEFAULT@DEFAULT_GROUP@@wms-service, region: unknown, msg: client timeout after 15000, last beat: 1572969184137
+
+2019-11-05 23:53:24,386 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8081@DEFAULT@DEFAULT_GROUP@@pms-service, region: unknown, msg: client timeout after 15000, last beat: 1572969186829
+
+2019-11-05 23:53:24,386 INFO {POS} {IP-DISABLED} valid: 192.168.1.8:8085@DEFAULT@DEFAULT_GROUP@@sms-service, region: unknown, msg: client timeout after 15000, last beat: 1572969186477
+

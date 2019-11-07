@@ -1,0 +1,56 @@
+2019-11-01 08:09:15,457 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8085:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-01 08:09:15,462 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 192.168.17.47:8085_true,
+
+2019-11-01 08:09:33,332 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-01 08:09:33,332 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.17.47:8081_true,
+
+2019-11-01 08:09:49,535 INFO DEFAULT_GROUP@@gateway-api {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8888:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-01 08:09:49,535 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@gateway-api, ips: 192.168.17.47:8888_true,
+
+2019-11-01 08:28:44,677 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8081@DEFAULT@DEFAULT_GROUP@@pms-service, region: unknown, msg: client timeout after 15000, last beat: 1572568107890
+
+2019-11-01 08:28:59,893 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-01 08:28:59,893 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 
+
+2019-11-01 08:29:06,398 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-01 08:29:06,398 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.17.47:8081_true,
+
+2019-11-01 12:44:37,346 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8085@DEFAULT@DEFAULT_GROUP@@sms-service, region: unknown, msg: client timeout after 15000, last beat: 1572583462255
+
+2019-11-01 12:44:42,347 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8081@DEFAULT@DEFAULT_GROUP@@pms-service, region: unknown, msg: client timeout after 15000, last beat: 1572583462482
+
+2019-11-01 12:44:52,364 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8085:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-01 12:44:52,364 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 
+
+2019-11-01 12:44:57,408 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-01 12:44:57,408 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 
+
+2019-11-01 12:45:54,473 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-01 12:45:54,473 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.17.47:8081_true,
+
+2019-11-01 12:46:18,707 INFO DEFAULT_GROUP@@sms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8085:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-01 12:46:18,707 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@sms-service, ips: 192.168.17.47:8085_true,
+
+2019-11-01 18:26:31,972 INFO {POS} {IP-DISABLED} valid: 192.168.17.47:8081@DEFAULT@DEFAULT_GROUP@@pms-service, region: unknown, msg: client timeout after 15000, last beat: 1572603974192
+
+2019-11-01 18:26:47,086 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2019-11-01 18:26:47,086 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 
+
+2019-11-01 18:27:21,400 INFO DEFAULT_GROUP@@pms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-01 18:27:21,401 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@pms-service, ips: 192.168.17.47:8081_true,
+
+2019-11-01 18:39:23,489 INFO DEFAULT_GROUP@@wms-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.17.47:8083:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2019-11-01 18:39:23,489 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@wms-service, ips: 192.168.17.47:8083_true,
+
