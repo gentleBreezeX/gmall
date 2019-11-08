@@ -61,7 +61,7 @@ public class CategoryEntity implements Serializable {
 	 * 计量单位
 	 */
 	@ApiModelProperty(name = "productUnit",value = "计量单位")
-	private String productUnit;
+    private String productUnit;
 	/**
 	 * 商品数量
 	 */

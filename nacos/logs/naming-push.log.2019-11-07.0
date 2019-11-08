@@ -1,0 +1,20 @@
+2019-11-07 18:33:11,613 INFO DEFAULT_GROUP@@serverAddr is changed, add it to push queue.
+
+2019-11-07 18:35:15,959 WARN client: 192.168.233.1:60076 already associated with key serviceName: DEFAULT_GROUP@@serverAddr, clusters: default, ip: 192.168.233.1, port: 60076, agent: Nacos-Java-Client:v1.0.0
+
+2019-11-07 18:36:03,380 INFO DEFAULT_GROUP@@sms-service is changed, add it to push queue.
+
+2019-11-07 18:36:03,394 INFO DEFAULT_GROUP@@pms-service is changed, add it to push queue.
+
+2019-11-07 18:36:25,526 INFO DEFAULT_GROUP@@wms-service is changed, add it to push queue.
+
+2019-11-07 18:36:49,103 INFO DEFAULT_GROUP@@gateway-api is changed, add it to push queue.
+
+2019-11-07 18:43:34,824 INFO DEFAULT_GROUP@@search-service is changed, add it to push queue.
+
+2019-11-07 18:51:03,725 INFO DEFAULT_GROUP@@pms-service is changed, add it to push queue.
+
+2019-11-07 18:51:04,919 INFO DEFAULT_GROUP@@search-service is changed, add it to push queue.
+
+2019-11-07 18:51:05,876 INFO DEFAULT_GROUP@@wms-service is changed, add it to push queue.
+

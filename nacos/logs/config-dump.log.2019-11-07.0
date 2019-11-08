@@ -1,0 +1,10 @@
+2019-11-07 18:32:48,934 INFO [dump-all-ok] pms-service.yml+dev, 1572338131434, length=269, md5=c60eb3a4d7ea22f05d7963d5f0d00de4
+
+2019-11-07 18:32:48,938 INFO [dump-all-ok] sms-service.yml+dev, 1572339410549, length=265, md5=68d00d7d0d09a285ae23fad95c84d147
+
+2019-11-07 18:32:48,938 INFO [dump-all-ok] ums-service.yml+dev, 1572339419925, length=265, md5=dbf3622bf8993fc334ab9a0c4637e1a8
+
+2019-11-07 18:32:48,938 INFO [dump-all-ok] wms-service.yml+dev, 1572339426191, length=265, md5=a434788009c321af718f1dfbf4f434d6
+
+2019-11-07 18:32:48,939 INFO [dump-all-ok] oms-service.yml+dev, 1572339434401, length=265, md5=1b68fff70614a957014626f25621837f
+
