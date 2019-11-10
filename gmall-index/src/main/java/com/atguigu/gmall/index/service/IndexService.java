@@ -14,9 +14,13 @@ public interface IndexService {
 
     List<CategoryVO> listChildrenCate(Long pid);
 
+    List<CategoryVO> listSubCate(Long pid);
+
     String testThread();
 
     String test();
 
     String testRedisson();
+
+
 }

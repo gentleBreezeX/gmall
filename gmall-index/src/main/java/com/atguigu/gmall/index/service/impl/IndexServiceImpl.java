@@ -2,6 +2,7 @@ package com.atguigu.gmall.index.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.index.annotation.CategoryCache;
 import com.atguigu.gmall.index.feign.GmallPmsFeign;
 import com.atguigu.gmall.index.service.IndexService;
 import com.atguigu.gmall.pms.consts.RedisConsts;
@@ -38,6 +39,17 @@ public class IndexServiceImpl implements IndexService {
         Resp<List<CategoryEntity>> listResp = gmallPmsFeign.listCategory(1, 0L);
 
         return listResp.getData();
+    }
+
+    @CategoryCache(timeout = 7, random = 6, unit = TimeUnit.DAYS)
+    @Override
+    public List<CategoryVO> listSubCate(Long pid) {
+
+        //2. 如果redis中没有，查询数据库
+        Resp<List<CategoryVO>> listResp = gmallPmsFeign.listChildrenCate(pid);
+        List<CategoryVO> categoryVOS = listResp.getData();
+
+        return categoryVOS;
     }
 
     @Override

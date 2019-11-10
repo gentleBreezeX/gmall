@@ -66,7 +66,16 @@ public class IndexController {
     @ApiOperation("响应门户页面二三级菜单")
     public Resp<List<CategoryVO>> listChildrenCate(@PathVariable("pid")Long pid){
 
-        List<CategoryVO> categoryVOS = indexService.listChildrenCate(pid);
+        /**
+         * 使用分布式锁+自定义注解+AOP实现查询菜单
+         */
+        List<CategoryVO> categoryVOS = indexService.listSubCate(pid);
+
+        /**
+         * 这个是常规的实现redis缓存
+         * List<CategoryVO> categoryVOS = indexService.listChildrenCate(pid);
+         */
+
 
         return Resp.ok(categoryVOS);
     }
