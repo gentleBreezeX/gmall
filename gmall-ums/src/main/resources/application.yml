@@ -4,4 +4,12 @@ spring:
     url: jdbc:mysql://192.168.233.128:3306/guli_ums?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 192.168.233.128
 
+sms:
+  host: http://dingxin.market.alicloudapi.com
+  path: /dx/sendSms
+  method: POST
+  appcode: fa18c1d5c3f04b3da24020893dccbf18
