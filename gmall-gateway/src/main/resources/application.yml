@@ -44,6 +44,17 @@ spring:
             - Path=/api/item/**
           filters:
             - RewritePath=/api(?<segment>.*), /$\{segment} # 重写前缀，去掉/api
+        - id: auth-route
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - RewritePath=/api(?<segment>.*), /$\{segment} # 重写前缀，去掉/api
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+
+auth:
+  jwt:
+    pubKeyPath: G:\\Java\\IDEA\\rsa\\rsa.pub # 公钥地址
+    cookieName: GMALL_TOKEN

@@ -1,9 +1,6 @@
 package com.atguigu.gmall.ums.controller;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import com.atguigu.core.bean.PageVo;
@@ -48,7 +45,7 @@ public class MemberController {
     @ApiOperation("根据用户名和密码查询用户")
     @GetMapping("query")
     public Resp<MemberEntity> queryUserByUsernameAndPassword(@RequestParam("username")String username,
-                                                       @RequestParam("username")String password){
+                                                       @RequestParam("password")String password){
 
         MemberEntity memberEntity = this.memberService.queryUser(username, password);
 
@@ -103,9 +100,9 @@ public class MemberController {
         if (!sendCode) {
             return Resp.fail("短信验证码发送失败");
         }
-        //将验证码存在redis中5分钟
+        //将验证码存在redis中15分钟
         redisTemplate.opsForValue().set(Consts.CODE_PREFIX + mobile,
-                code, 5, TimeUnit.MINUTES);
+                code, 15, TimeUnit.MINUTES);
         //修改该手机的验证码的次数
         Long expire = redisTemplate.getExpire(Consts.CODE_COUNT_PREFIX + mobile, TimeUnit.MINUTES);
         if (expire == null || expire <= 0) {
