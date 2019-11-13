@@ -50,6 +50,12 @@ spring:
             - Path=/api/auth/**
           filters:
             - RewritePath=/api(?<segment>.*), /$\{segment} # 重写前缀，去掉/api
+        - id: cart-route
+          uri: lb://cart-service
+          predicates:
+            - Path=/api/cart/**
+          filters:
+            - RewritePath=/api(?<segment>.*), /$\{segment} # 重写前缀，去掉/api
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848

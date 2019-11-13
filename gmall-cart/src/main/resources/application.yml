@@ -1,0 +1,16 @@
+server:
+  port: 8090
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  redis:
+    host: 192.168.233.128
+
+auth:
+  jwt:
+    pubKeyPath: G:\\Java\\IDEA\\rsa\\rsa.pub # \u516C\u94A5\u5730\u5740
+    expire: 2592000 # \u8FC7\u671F\u65F6\u95F4 \u4E00\u4E2A\u6708\u5355\u4F4D\u79D2
+    cookieName: GMALL_TOKEN # cookie\u540D\u5B57
+    userKeyName: USER_KEY # \u6E38\u5BA2\u7684id\u540D\u5B57
