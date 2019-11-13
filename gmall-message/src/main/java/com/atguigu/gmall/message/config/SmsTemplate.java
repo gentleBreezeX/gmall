@@ -1,12 +1,13 @@
-package com.atguigu.gmall.ums.template;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.atguigu.gmall.message.config;
 
 import com.atguigu.core.utils.HttpUtils;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Component

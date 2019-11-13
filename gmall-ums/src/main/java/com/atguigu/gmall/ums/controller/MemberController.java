@@ -8,10 +8,11 @@ import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
 import com.atguigu.core.consts.Consts;
 import com.atguigu.core.utils.CommonUtils;
-import com.atguigu.gmall.ums.template.SmsTemplate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -38,9 +39,10 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
     @Autowired
-    private StringRedisTemplate redisTemplate;
+    private AmqpTemplate amqpTemplate;
     @Autowired
-    private SmsTemplate smsTemplate;
+    private StringRedisTemplate redisTemplate;
+
 
     @ApiOperation("根据用户名和密码查询用户")
     @GetMapping("query")
@@ -62,8 +64,8 @@ public class MemberController {
     }
 
     @ApiOperation("发送验证码")
-    @PostMapping("sendSms")
-    public Resp<String> sendSms(@RequestParam("mobile")String mobile){
+    @PostMapping("code")
+    public Resp<String> sendSMS(@RequestParam("mobile")String mobile){
 
         //1. 验证手机号码是否正确
         boolean mobilePhone = CommonUtils.isMobilePhone(mobile);
@@ -90,16 +92,16 @@ public class MemberController {
             return Resp.fail("请不要频繁获取验证码");
         }
 
-        //发送验证码
+        //生成验证码
         String code = UUID.randomUUID().toString().replace("-", "").substring(0, 6);
-        Map<String, String> querys = new HashMap<>();
-        querys.put("mobile", mobile);
-        querys.put("param", "code:" + code);
-        querys.put("tpl_id", "TP1711063");
-        boolean sendCode = smsTemplate.sendCode(querys);
-        if (!sendCode) {
-            return Resp.fail("短信验证码发送失败");
-        }
+        //发送到消息中间件
+        Integer type = 1;//表示发送验证码
+        HashMap<String, Object> map = new HashMap<>(3);
+        map.put("mobile", mobile);
+        map.put("type", type);
+        map.put("code", code);
+        this.amqpTemplate.convertAndSend("message." + type, map);
+
         //将验证码存在redis中15分钟
         redisTemplate.opsForValue().set(Consts.CODE_PREFIX + mobile,
                 code, 15, TimeUnit.MINUTES);
@@ -112,10 +114,8 @@ public class MemberController {
         count++;
         redisTemplate.opsForValue().set(Consts.CODE_COUNT_PREFIX + mobile,
                 count+"", expire, TimeUnit.MINUTES);
-
         return Resp.ok("发送成功");
     }
-
 
     @ApiOperation("验证账号邮箱手机是否可用")
     @GetMapping("check/{data}/{type}")

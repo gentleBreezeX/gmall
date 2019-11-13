@@ -1,0 +1,21 @@
+server:
+  port: 8077
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  rabbitmq:
+    host: 192.168.233.128
+    username: breeze
+    password: breeze
+    virtual-host: /breeze
+  redis:
+    host: 192.168.233.128
+
+# \u53D1\u9001\u77ED\u4FE1\u7684\u53C2\u6570
+sms:
+  host: http://dingxin.market.alicloudapi.com
+  path: /dx/sendSms
+  method: POST
+  appcode: fa18c1d5c3f04b3da24020893dccbf18
