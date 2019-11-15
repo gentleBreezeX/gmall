@@ -15,19 +15,21 @@ import java.util.List;
 @Data
 public class Cart {
 
-    private Long skuId;
+    private Long skuId; //商品id
 
-    private String skuTitle;
+    private String skuTitle; //商品标题
 
-    private Boolean check;
+    private Boolean check; //是否勾选
 
-    private Integer count;
+    private Integer count; //数量
 
-    private String defaultImage;
+    private String defaultImage; // 默认图片
 
-    private BigDecimal price;
+    private BigDecimal price; //价格
 
-    private List<ItemSaleVO> sales;
+    private BigDecimal currentPrice; // 当前价格(最新价格)
 
-    private List<SkuSaleAttrValueEntity> skuAttrValue;
+    private List<ItemSaleVO> sales; //营销信息优惠积分
+
+    private List<SkuSaleAttrValueEntity> skuAttrValue; //销售属性，规格参数
 }

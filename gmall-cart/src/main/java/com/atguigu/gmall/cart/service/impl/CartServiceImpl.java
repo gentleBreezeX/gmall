@@ -17,6 +17,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,7 +35,9 @@ public class CartServiceImpl implements CartService {
     @Autowired
     private StringRedisTemplate redisTemplate;
     //设置redis中商品前缀
-    public static final String CART_PREFIX = "cart:uid:";
+    private static final String CART_PREFIX = "cart:uid:";
+    //redis商品最新价格的前缀
+    private static final String CURRENT_PRICE_PREFIX = "cart:price:";
 
     @Override
     public void addCart(Cart cart) {
@@ -68,6 +71,8 @@ public class CartServiceImpl implements CartService {
 
             Resp<List<ItemSaleVO>> itemSaleResp = this.smsFeign.queryItemSaleVOs(skuId);
             cart.setSales(itemSaleResp.getData());
+            //把skuId对应商品的当前价格存入redis
+            this.redisTemplate.opsForValue().set(CURRENT_PRICE_PREFIX + skuId, skuInfoEntity.getPrice().toString());
         }
         //同步到redis中
         hashOps.put(skuId.toString(), JSON.toJSONString(cart));
@@ -91,8 +96,12 @@ public class CartServiceImpl implements CartService {
 
         //如果未登录的购物车不为空
         if (!CollectionUtils.isEmpty(userKeyCartsJsonList)) {
-            userKeyCarts = userKeyCartsJsonList.stream()
-                    .map(o -> JSON.parseObject(o.toString(), Cart.class)).collect(Collectors.toList());
+            userKeyCarts = userKeyCartsJsonList.stream().map(o -> {
+                Cart cart = JSON.parseObject(o.toString(), Cart.class);
+                //获取redis中当前价格设置进未登录的购物车
+                cart.setCurrentPrice(new BigDecimal(this.redisTemplate.opsForValue().get(CURRENT_PRICE_PREFIX + cart.getSkuId())));
+                return cart;
+            }).collect(Collectors.toList());
         }
 
         //判断用户是否登录
@@ -130,9 +139,11 @@ public class CartServiceImpl implements CartService {
         //返回登录状态的购物车
         List<Object> userIdCartsJsonList = userIdOps.values();
         if (!CollectionUtils.isEmpty(userIdCartsJsonList)) {
-            return userIdCartsJsonList.stream()
-                    .map(userIdCartJson -> JSON.parseObject(userIdCartJson.toString(), Cart.class))
-                    .collect(Collectors.toList());
+            return userIdCartsJsonList.stream().map(userIdCartJson -> {
+                Cart cart = JSON.parseObject(userIdCartJson.toString(), Cart.class);
+                cart.setCurrentPrice(new BigDecimal(this.redisTemplate.opsForValue().get(CURRENT_PRICE_PREFIX + cart.getSkuId())));
+                return cart;
+            }).collect(Collectors.toList());
         }
 
         return null;
