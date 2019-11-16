@@ -1,6 +1,7 @@
 package com.atguigu.gmall.cart.service;
 
 import com.atguigu.gmall.cart.vo.Cart;
+import com.atguigu.gmall.cart.vo.CartItemVO;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface CartService {
     void removeCart(Long skuId);
 
     void checkCart(List<Cart> carts);
+
+    List<CartItemVO> queryCartItemVO(Long userId);
 }

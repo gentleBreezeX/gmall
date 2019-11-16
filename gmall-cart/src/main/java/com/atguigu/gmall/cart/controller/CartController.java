@@ -3,6 +3,7 @@ package com.atguigu.gmall.cart.controller;
 import com.atguigu.core.bean.Resp;
 import com.atguigu.gmall.cart.service.CartService;
 import com.atguigu.gmall.cart.vo.Cart;
+import com.atguigu.gmall.cart.vo.CartItemVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,15 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+
+    @ApiOperation("获取用户选中的skuId和数量")
+    @GetMapping("order/{userId}")
+    public Resp<List<CartItemVO>> queryCartItemVO(@PathVariable("userId")Long userId){
+
+        List<CartItemVO> cartItemVOList = this.cartService.queryCartItemVO(userId);
+
+        return Resp.ok(cartItemVOList);
+    }
 
     @ApiOperation("添加商品到购物车的方法")
     @PostMapping

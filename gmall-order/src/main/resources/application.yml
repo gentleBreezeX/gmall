@@ -1,0 +1,19 @@
+server:
+  port: 8092
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  redis:
+    host: 192.168.233.128
+  rabbitmq:
+    host: 192.168.233.128
+    username: breeze
+    password: breeze
+    virtual-host: /breeze
+auth:
+  jwt:
+    pubKeyPath: G:\\Java\\IDEA\\rsa\\rsa.pub
+    cookieName: GMALL_TOKEN
+

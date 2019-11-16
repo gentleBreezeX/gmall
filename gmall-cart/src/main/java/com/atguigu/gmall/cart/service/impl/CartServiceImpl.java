@@ -7,7 +7,8 @@ import com.atguigu.gmall.cart.feign.GmallSmsFeign;
 import com.atguigu.gmall.cart.interceptor.LoginInterceptor;
 import com.atguigu.gmall.cart.service.CartService;
 import com.atguigu.gmall.cart.vo.Cart;
-import com.atguigu.gmall.cart.vo.UserInfo;
+import com.atguigu.core.bean.UserInfo;
+import com.atguigu.gmall.cart.vo.CartItemVO;
 import com.atguigu.gmall.pms.entity.SkuInfoEntity;
 import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
 import com.atguigu.gmall.sms.vo.ItemSaleVO;
@@ -205,6 +206,31 @@ public class CartServiceImpl implements CartService {
         });
 
 
+    }
+
+    @Override
+    public List<CartItemVO> queryCartItemVO(Long userId) {
+
+        //用户已登录, 查询登录状态的购物车
+        String userIdKey = CART_PREFIX + userId;
+        BoundHashOperations<String, Object, Object> userIdOps = this.redisTemplate.boundHashOps(userIdKey);
+
+        //返回登录状态的购物车
+        List<Object> userIdCartsJsonList = userIdOps.values();
+        if (!CollectionUtils.isEmpty(userIdCartsJsonList)) {
+            return userIdCartsJsonList.stream().map(userIdCartJson -> {
+                Cart cart = JSON.parseObject(userIdCartJson.toString(), Cart.class);
+                cart.setCurrentPrice(new BigDecimal(this.redisTemplate.opsForValue().get(CURRENT_PRICE_PREFIX + cart.getSkuId())));
+                return cart;
+            }).filter(Cart::getCheck).map(cart -> {
+                CartItemVO cartItemVO = new CartItemVO();
+                cartItemVO.setSkuId(cart.getSkuId());
+                cartItemVO.setCount(cart.getCount());
+                return cartItemVO;
+            }).collect(Collectors.toList());
+        }
+
+        return null;
     }
 
     private String getKey() {

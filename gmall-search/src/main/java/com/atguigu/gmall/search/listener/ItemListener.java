@@ -100,7 +100,7 @@ public class ItemListener {
                 goodsVo.setAttrValueList(spuAttributeValueVOList);
 
                 //库存
-                Resp<List<WareSkuEntity>> wareSkuResp = this.gmallWmsFeign.get(skuInfoEntity.getSkuId());
+                Resp<List<WareSkuEntity>> wareSkuResp = this.gmallWmsFeign.queryWareBySkuId(skuInfoEntity.getSkuId());
                 List<WareSkuEntity> wareSkuEntities = wareSkuResp.getData();
 
                 //只要有一个库存大于0就返回true，可能有多个仓库

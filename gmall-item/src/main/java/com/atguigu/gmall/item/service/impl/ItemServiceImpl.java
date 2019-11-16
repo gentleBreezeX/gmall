@@ -84,7 +84,7 @@ public class ItemServiceImpl implements ItemService {
 
         //7.是否有货
         CompletableFuture<Void> storeCompletableFuture = CompletableFuture.runAsync(() -> {
-            Resp<List<WareSkuEntity>> wareSkuResp = this.gmallWmsFeign.get(skuId);
+            Resp<List<WareSkuEntity>> wareSkuResp = this.gmallWmsFeign.queryWareBySkuId(skuId);
             List<WareSkuEntity> wareSkuEntities = wareSkuResp.getData();
             itemVO.setStore(wareSkuEntities.stream().anyMatch(t -> t.getStock() > 0));
         }, threadPoolExecutor);
