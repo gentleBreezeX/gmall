@@ -1,11 +1,15 @@
 package com.atguigu.gmall.wms.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.atguigu.gmall.wms.vo.SkuLockVO;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -30,6 +34,10 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
     private RedissonClient redissonClient;
     @Autowired
     private WareSkuDao wareSkuDao;
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     @Override
     public PageVo queryPage(QueryCondition params) {
@@ -60,6 +68,11 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
 
             return "锁定失败" + error.stream().map(SkuLockVO::getSkuId).collect(Collectors.toList()).toString();
         }
+        //保存锁定库存的信息到redis中
+        String orderToken = skuLockVOS.get(0).getOrderToken();
+        this.redisTemplate.opsForValue().set("order:stock:" + orderToken, JSON.toJSONString(skuLockVOS));
+        //发送延迟消息，20分钟解锁库存(现实是15分钟，这里就是20)
+        this.amqpTemplate.convertAndSend("WMS-EXCHANGE", "wms.unlock", orderToken);
 
         return null;
     }
